@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {GoogleIcon, SearchIcon} from "../../shared/Icons";
-import cn from "classnames";
 
 const Links = () => {
 
-    const [visible, setVisible] = useState(false);
     const [value, setValue] = useState('')
 
     const handleKeyDown = (e) => {
@@ -28,7 +26,7 @@ const Links = () => {
                     onChange={(e) => setValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                     value={value}
-                    className={cn({visibility: !visible})}/>
+                    />
                 <Google>
                     <GoogleIcon/>
                 </Google>

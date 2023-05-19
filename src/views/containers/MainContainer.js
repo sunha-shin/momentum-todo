@@ -22,7 +22,7 @@ const MainContainer = () => {
 
     useEffect(() => {
         dispatch(fetchWeather());
-    }, [])
+    })
 
     return (
         <Container>

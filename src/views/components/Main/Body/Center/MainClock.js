@@ -20,7 +20,7 @@ const MainClock = () => {
 
     useEffect(() => {
         interval.current = setInterval(() => { // for real dom
-            now = new Date();
+            let now = new Date();
             setHour(padNumber(now.getHours(), 2));
             setMin(padNumber(now.getMinutes(), 2));
             setSec(padNumber(now.getSeconds(), 2));
