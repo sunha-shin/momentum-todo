@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from "styled-components";
-import { BiChevronLeft } from 'react-icons/bi';
 
-
-const MainButton = ({LeftIcon, rightIcon, text, onClick, type = undefined}) => {
+const MainButton = ({LeftIcon, rightIcon, text, onClick, name, type = undefined}) => {
     return (
-        <Container onClick={onClick} type={type}>
-            <BiChevronLeft size={30} />
+        <Container
+            onClick={onClick}
+            type={type}
+            name={name}
+        >
+            {LeftIcon}
             {text}
             {rightIcon}
         </Container>

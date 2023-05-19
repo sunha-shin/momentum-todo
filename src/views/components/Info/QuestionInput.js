@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const QuestionInput = ({question, type, name, value, info, setInfo, onChange, onKeyDown}) => {
+const QuestionInput = ({question, type, name, value, onChange, onKeyDown}) => {
 
     return (
         <div>
@@ -9,9 +9,7 @@ const QuestionInput = ({question, type, name, value, info, setInfo, onChange, on
             <Input
                 type={type}
                 name={name}
-                value={value}
-                info={info}
-                setInfo={setInfo}
+                value={value}                
                 onChange={onChange}
                 onKeyDown={onKeyDown}
             />

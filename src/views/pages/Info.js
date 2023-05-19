@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import styled, {keyframes} from 'styled-components';
 import {useNavigate} from "react-router-dom";
 import MainButton from "../components/shared/MainButton";
-import {LeftArrow as leftIcon} from "../components/shared/Icons";
 import {useDispatch} from "react-redux";
 import {saveUserInfo} from "../../redux/slice/userSlice";
 import {USER_INFO} from "../../constants";
@@ -46,6 +45,12 @@ const Info = () => {
         }
     };
 
+    const onClick = (e) => {
+        if (info[e.target.name]) {
+            handlePageStatus(`${e.target.name}Page`);
+        }
+    }
+
     // useMemo
     if (Object.values(pageStatus).every((v) => v === true)) {
         dispatch(saveUserInfo(info));
@@ -60,17 +65,15 @@ const Info = () => {
                     type={'text'}
                     name={'name'}
                     value={info.name}
-                    info={info}
-                    setInfo={setInfo}
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                 />
                 <Buttons>
                     <MainButton
-                        LeftIcon={leftIcon}
                         text={"Continue"}
                         type={"submit"}
-                        onClick={() => handlePageStatus('namePage')}
+                        name={'name'}
+                        onClick={onClick}
                     />
                 </Buttons>
             </Section>
@@ -85,18 +88,21 @@ const Info = () => {
                     type={"email"}
                     name={'email'}
                     value={info.email}
-                    info={info}
-                    setInfo={setInfo}
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                 />
                 <Buttons>
-                    <MainButton LeftIcon={leftIcon} text={"Change name"}
-                                onClick={() => changeValue('namePage')}/>
-                    <MainButton LeftIcon={leftIcon} text={"Stay logged out"}
-                                onClick={handleLogout}/>
-                    <MainButton LeftIcon={leftIcon} text={"Continue"} type={"submit"}
-                                onClick={() => handlePageStatus('emailPage')}/>
+                    <MainButton
+                        text={"Change name"}
+                        onClick={() => changeValue('namePage')}/>
+                    <MainButton
+                        text={"Stay logged out"}
+                        onClick={handleLogout}/>
+                    <MainButton
+                        text={"Continue"}
+                        type={"submit"}
+                        name={'email'}
+                        onClick={onClick}/>
                 </Buttons>
             </Section>
         </Container>
@@ -110,16 +116,18 @@ const Info = () => {
                     type={"password"}
                     name={'pw'}
                     value={info.pw}
-                    info={info}
-                    setInfo={setInfo}
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                 />
                 <Buttons>
-                    <MainButton LeftIcon={leftIcon} text={"Change email"}
-                                onClick={() => changeValue('emailPage')}/>
-                    <MainButton LeftIcon={leftIcon} text={"Continue"} type={"submit"}
-                                onClick={() => handlePageStatus('pwPage')}/>
+                    <MainButton
+                        text={"Change email"}
+                        onClick={() => changeValue('emailPage')}/>
+                    <MainButton
+                        text={"Continue"}
+                        type={"submit"}
+                        name={'pw'}
+                        onClick={onClick}/>
                 </Buttons>
             </Section>
         </Container>
