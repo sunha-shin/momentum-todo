@@ -49,7 +49,9 @@ const onKeyDown = (e) => {
 
                                          
 ⭐ What I learned ⭐
-A function using 'e.target.name' could handle three input if there is a name property in input tag 
+- A function using 'e.target.name' could handle three inputs at the same time if there is a name property .
+- In JavaScript, e.target.name refers to a property that represents the name attribute of the target element within an event object (e).
+- It is commonly used in event handling to access the name value of the element that triggered the event.                                 
 ```
                                
                                 
@@ -72,5 +74,8 @@ const createTodoOnKeyDown = (e) => {
 
                                 
 ⭐ What I learned ⭐
-Should use a spread operator to shallaw copy for keeping an immuntability                             
+- Should use a spread operator to shallaw copy for keeping an immuntability.
+- In React, when working with component state or props, it is important to avoid directly mutating the original state or props.
+- By using the spread operator, a new object or array is created that captures the existing values of the original state or
+  props, while allowing developers to make modifications to the copied version without affecting the original data.    
 ```
